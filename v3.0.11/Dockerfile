@@ -11,6 +11,7 @@ RUN sed -e s%http://archive.ubuntu.com/ubuntu/%mirror://mirrors.ubuntu.com/mirro
 ENV MAPNIK_VERSION=v3.0.11
 
 RUN apt-get build-dep -y libmapnik3.0 \
+    && apt-get install -y git \
     && git clone --depth 1 --branch $MAPNIK_VERSION https://github.com/mapnik/mapnik.git \
     && cd mapnik \
     && git submodule update --init \
