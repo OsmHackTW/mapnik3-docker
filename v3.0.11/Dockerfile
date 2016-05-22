@@ -21,5 +21,6 @@ RUN apt-get build-dep -y libmapnik3.0 \
     && cd - \
     && rm -r mapnik \
     && apt-get autoremove -y --purge git build-essential \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
