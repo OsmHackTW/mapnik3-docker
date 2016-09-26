@@ -1,5 +1,5 @@
 FROM osmtw/ubuntu:xenial
-MAINTAINER Rex Tsai <rex.cc.tsai@gmail.com>
+MAINTAINER Rex Tsai "https://about.me/chihchun"
 
 ENV MAPNIK_VERSION=3.0.9+ds-1 \
     PYTHON_MAPNIK_VERSION=1:0.0~20151125-92e79d2-1build1
@@ -12,6 +12,10 @@ RUN apt-get install -y \
             python-mapnik=${PYTHON_MAPNIK_VERSION} \
             python3-mapnik=${PYTHON_MAPNIK_VERSION} \
      && python -c 'import mapnik'
+
+# Install nik2img
+RUN apt-get install -y python-setuptools \
+ && easy_install -U nik2img
 
 # Clean up APT when done
 RUN apt-get clean \
